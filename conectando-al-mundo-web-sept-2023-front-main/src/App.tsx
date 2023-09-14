@@ -3,8 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import Example from "./components/Example";
 import Principal from "./models/Principal";
-import Registro from "./models/Resgistro";
-import Registro from "./models/Calendar";
+import Registro from "./models/Registro";
+import Calendar from "./models/Calendar";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
