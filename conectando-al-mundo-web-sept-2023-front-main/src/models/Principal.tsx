@@ -5,14 +5,19 @@ import { Grid } from "@mui/material";
 import { Pokemon } from "./Pokemon";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import calendar from "../components/img/boton-calendar.png";
+import task from "../components/img/new-task.png";
 
-function Pokedex() {
+function TareaProps() {
   return (
-    <div className="Pokedex">
-      <h1>Things to do</h1>
-      <h2>Title: {}</h2>
+    <div className="Container">
+      <div className="Navbar">
+        <img src={task} style={{ width: "60px" }} />
+        <h1>Things to do</h1>
+        <img src={calendar} style={{ width: "130px" }} />
+      </div>
     </div>
   );
 }
 
-export default Pokedex;
+export default TareaProps;
