@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Example from './components/Example';
-import Pokedex from './components/Pokedex';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Example from "./components/Example";
+import Principal from "./models/Principal";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
@@ -10,14 +10,12 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import CreateUserForm from './screens/CreateUserForm';
+import CreateUserForm from "./screens/CreateUserForm";
 
 const router = createBrowserRouter([
   {
-    path: "/pokedex",
-    element: (
-      <Pokedex></Pokedex>
-    ),
+    path: "/principal",
+    element: <Principal></Principal>,
   },
   {
     path: "/user-form",
