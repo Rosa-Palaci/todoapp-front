@@ -4,10 +4,12 @@
 body {
   background: var(--fondo);
   color: #3c3a2d;
+  text-align: center;
 }
 
 .Navbar {
-  margin: 48px 80px 0px 80px;
+  margin-top: 48px;
+  margin-left: 50px;
   text-align: center;
   max-width: 1280px;
   width: 100%;
@@ -15,4 +17,44 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.Filter {
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 150px;
+  height: 40px;
+  transition: filter 0.3s;
+}
+
+.filter-button.urgent {
+  background-color: #ff285b;
+}
+
+.filter-button.important {
+  background-color: #ffc107;
+}
+
+.filter-button.low {
+  background-color: #18f089;
+}
+
+.filter-button.all {
+  background-color: #00d1ff;
+}
+
+.filter-button:hover {
+  filter: saturate(60%);
 }
