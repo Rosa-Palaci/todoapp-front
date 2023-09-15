@@ -8,8 +8,7 @@ import checkbox from "../components/img/checkbox.png";
 import edit from "../components/img/edit.png";
 import trash from "../components/img/trash.png";
 import { Link, useNavigate } from "react-router-dom";
-import {tarea} from "../models/tarea"
-
+import { tarea } from "../models/tarea";
 
 enum FilterOption {
   Urgent = "urgent",
@@ -44,19 +43,18 @@ function TareaProps() {
   const [filter, setFilter] = useState(FilterOption.All);
 
   const [tarea, setTareas] = useState([]);
-  function listTareas(){
-    axios.get("http://127.0.0.1:8000/tarea/vertodo").then((response)=>{
-        setTareas(response.data)
-    })
-  };
+  function listTareas() {
+    axios.get("http://127.0.0.1:8000/tarea/vertodo").then((response) => {
+      setTareas(response.data);
+    });
+  }
 
   const handleFilterClick = (value: FilterOption) => {
     setFilter(value);
-    // Agregar lógica adicional para filtrar las tareas según el valor
   };
-  useEffect(()=>{
+  useEffect(() => {
     listTareas();
-},[])
+  }, []);
   return (
     <div className="Container">
       <div className="Navbar">

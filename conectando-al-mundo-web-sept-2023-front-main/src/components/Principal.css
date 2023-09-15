@@ -110,3 +110,7 @@ body {
 .clicked {
   opacity: 0.4;
 }
+
+.Calendar {
+  margin-top: 40px;
+}

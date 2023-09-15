@@ -1,70 +1,107 @@
-import "../components/Calendar.css";
-import { Button, Grid } from "@mui/material";
+import "../components/Principal.css";
+import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter, Route, useNavigate } from "react-router-dom";
+import menu from "../components/img/menuButton.png";
+import task from "../components/img/new-task.png";
+import calendarimg from "../components/img/googletips_calendar2.jpg";
+import { Link, useNavigate } from "react-router-dom";
+import { tarea } from "../models/tarea";
 
-export const Calendar = (): JSX.Element => {
+enum FilterOption {
+  Urgent = "urgent",
+  Important = "important",
+  Low = "low",
+  All = "all",
+}
+
+function CalendarProps() {
+  const [menuClicked, setMenuClicked] = useState(false);
+  const [calendarClicked, setCalendarClicked] = useState(false);
   const navigate = useNavigate();
-  const goToMenu = () => {
-    navigate("/principal");
-  };
-  const goToAdd = () => {
+
+  const handleTaskClick = () => {
+    setMenuClicked(true);
     navigate("/registro");
+
+    setTimeout(() => {
+      setMenuClicked(false);
+    }, 500);
   };
+
+  const handleCalendarClick = () => {
+    setCalendarClicked(true);
+    navigate("/principal");
+
+    setTimeout(() => {
+      setCalendarClicked(false);
+    }, 500);
+  };
+
+  const [filter, setFilter] = useState(FilterOption.All);
+
+  const handleFilterClick = (value: FilterOption) => {
+    setFilter(value);
+  };
+
   return (
-    <div className="calendar">
-        <div className="title">Calendar</div>
-        <Button className="menu" onClick={goToMenu}></Button>
-        <Button className="plus" onClick={goToAdd}></Button>
-        <div className="monday">
-          <div className="text-monday">Monday</div>
-          <div className="mon_task1">
-            <div className="low_task">
-              <div className="task_text">Tarea 1</div>
-            </div>
-          </div>
-          <div className="mon_task2">
-            <div className="important_task">
-              <div className="task_text">Tarea 2</div>
-            </div>
-          </div>
-          <div className="mon_task3">
-            <div className="urgent_task">
-              <div className="task_text">Tarea 3</div>
-            </div>
-          </div>
-        </div>
-        <div className="tuesday">
-          <div className="text-tuesday">Tuesday</div>
-        </div>
-        <div className="wednesday">
-          <div className="text-wednesday">Wednesday</div>
-        </div>
-        <div className="thursday">
-          <div className="text-thursday">Thursday</div>
-        </div>
-        <div className="friday">
-          <div className="text-friday">Friday</div>
-        </div>
-        <div className="filter">
-          <div className="urgent">
-            <Button className="img-urgent"></Button>
-              <div className="urgent-text">Urgent</div>
-            </div>
-          <div className="important">
-            <Button className="img-important"></Button>
-              <div className="important-text">Important</div>
-            </div>
-          <div className="low">
-            <Button className="img-low"></Button>
-              <div className="low-text">Low</div>
-            </div>
-          <div className="all">
-            <Button className="img-all"></Button>
-              <div className="all-text">All</div>
-          </div>
-        </div>
+    <div className="Container">
+      <div className="Navbar">
+        <img
+          src={menu}
+          className="clickable-image"
+          onClick={handleTaskClick}
+          style={{ width: "60px" }}
+        />
+        <h1>Calendar</h1>
+        <img
+          src={task}
+          className="clickable-image"
+          onClick={handleTaskClick}
+          style={{ width: "60px" }}
+        />
+      </div>
+
+      <div className="Filter">
+        <button
+          className={`filter-button ${
+            filter === FilterOption.Urgent ? "active" : ""
+          } urgent`}
+          onClick={() => handleFilterClick(FilterOption.Urgent)}
+        >
+          Urgent
+        </button>
+        <button
+          className={`filter-button ${
+            filter === FilterOption.Important ? "active" : ""
+          } important`}
+          onClick={() => handleFilterClick(FilterOption.Important)}
+        >
+          Important
+        </button>
+        <button
+          className={`filter-button ${
+            filter === FilterOption.Low ? "active" : ""
+          } low`}
+          onClick={() => handleFilterClick(FilterOption.Low)}
+        >
+          Low
+        </button>
+        <button
+          className={`filter-button ${
+            filter === FilterOption.All ? "active" : ""
+          } all`}
+          onClick={() => handleFilterClick(FilterOption.All)}
+        >
+          All
+        </button>
+      </div>
+
+      <div className="Calendar">
+        <img src={calendarimg} alt="Editar" />
+      </div>
     </div>
   );
-};
+}
+
+export default CalendarProps;

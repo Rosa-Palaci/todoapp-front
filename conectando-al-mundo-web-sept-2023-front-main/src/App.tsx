@@ -4,7 +4,7 @@ import "./App.css";
 import Example from "./components/Example";
 import Principal from "./models/Principal";
 import Registro from "./screens/Registro";
-import { Calendar } from "./models/Calendar";
+import Calendar from "./models/Calendar";
 
 import { createRoot } from "react-dom/client";
 import {
