@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import calendar from "../components/img/boton-calendar.png";
 import task from "../components/img/new-task.png";
+import checkbox from "../components/img/checkbox.png";
+import edit from "../components/img/edit.png";
+import trash from "../components/img/trash.png";
 
 enum FilterOption {
   Urgent = "urgent",
@@ -15,9 +18,15 @@ enum FilterOption {
 function TareaProps() {
   const [filter, setFilter] = useState(FilterOption.All);
 
+  const [tasks, setTasks] = useState([
+    { id: 1, name: "Tarea 1" },
+    { id: 2, name: "Tarea 2" },
+    { id: 3, name: "Tarea 3" }, //Falta logica
+  ]);
+
   const handleFilterClick = (value: FilterOption) => {
     setFilter(value);
-    // Aquí puedes agregar lógica adicional para filtrar tus tareas según el valor seleccionado.
+    // Agregar lógica adicional para filtrar las tareas según el valor
   };
   return (
     <div className="Container">
@@ -63,7 +72,22 @@ function TareaProps() {
       </div>
 
       <div className="List">
-        <h1>Lista Tareas</h1>
+        {tasks.map((task) => (
+          <div className="task-card" key={task.id}>
+            <div className="task-name">{task.name}</div>
+            <div className="task-buttons">
+              <button className="checkbox-button">
+                <img src={checkbox} alt="Editar" />
+              </button>
+              <button className="edit-button">
+                <img src={edit} alt="Editar" />
+              </button>
+              <button className="delete-button">
+                <img src={trash} alt="Eliminar" />
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
