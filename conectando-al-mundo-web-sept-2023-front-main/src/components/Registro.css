@@ -41,13 +41,40 @@ body {
 
 .clickable-image {
   cursor: pointer;
-  transition: opacity 0.3s; /* Transición suave de la opacidad */
+  transition: opacity 0.3s;
 }
 
 .clickable-image:hover {
-  opacity: 0.7; /* Cambia la opacidad al pasar el ratón sobre la imagen */
+  opacity: 0.7;
 }
 
 .clicked {
-  opacity: 0.4; /* Cambia la opacidad cuando se hace clic en la imagen */
+  opacity: 0.4;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.visible {
+  display: block;
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+button[type="button"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[type="button"]:hover {
+  background-color: #0056b3;
 }

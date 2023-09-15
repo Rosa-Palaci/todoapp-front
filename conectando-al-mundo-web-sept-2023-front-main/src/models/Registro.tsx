@@ -15,12 +15,18 @@ function Tasklog() {
   const [link, setLink] = useState("");
   const [date, setDate] = useState("");
   const [priority, setPriority] = useState("urgent");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleCreateTask = () => {
+    if (!title || !link || !date || !priority) {
+      setErrorMessage("Todos los campos son obligatorios.");
+      return;
+    }
     setTitle("");
     setLink("");
     setDate("");
     setPriority("urgent");
+    setErrorMessage("");
   };
 
   const [menuClicked, setMenuClicked] = useState(false);
@@ -42,6 +48,7 @@ function Tasklog() {
       setCalendarClicked(false);
     }, 500);
   };
+
   return (
     <div className="Container">
       <div className="Navbar">
@@ -61,6 +68,10 @@ function Tasklog() {
       </div>
 
       <div className="Forms">
+        {errorMessage && (
+          <p className="error-message visible">{errorMessage}</p>
+        )}
+
         <form>
           <div className="form-item">
             <label htmlFor="title">Enter title:</label>
@@ -84,12 +95,11 @@ function Tasklog() {
           <div className="form-item">
             <label htmlFor="date">Enter date:</label>
             <input
-              type="text"
+              type="date"
               id="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
-            <img src={datecalendar} />
           </div>
           <div className="form-item">
             <label htmlFor="priority">Enter priority:</label>
