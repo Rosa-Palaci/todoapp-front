@@ -50,6 +50,14 @@ function TareaProps() {
     })
   };
 
+  function eliminarTarea(idtarea:number){
+    axios.get(`http://127.0.0.1:8000/tarea/hecha/${idtarea}`)
+  };
+  const handledeleteClick = ( id:number) => {
+    eliminarTarea(id);
+    window.location.reload();
+  };
+
   const handleFilterClick = (value: FilterOption) => {
     setFilter(value);
     // Agregar lógica adicional para filtrar las tareas según el valor
@@ -115,14 +123,14 @@ function TareaProps() {
           <div className="task-card" key={tarea.idtarea}>
             <div className="task-name">{tarea.nombre}</div>
             <div className="task-buttons">
-              <button className="checkbox-button">
+              <button className="checkbox-button" onClick={() => handledeleteClick(tarea.idtarea)}>
                 <img src={checkbox} alt="Editar" />
               </button>
               <button className="edit-button">
                 <img src={edit} alt="Editar" />
               </button>
-              <button className="delete-button">
-                <img src={trash} alt="Eliminar" />
+              <button className="delete-button" onClick={() => handledeleteClick(tarea.idtarea)}>
+              <img src={trash} alt="Eliminar" />
               </button>
             </div>
           </div>
