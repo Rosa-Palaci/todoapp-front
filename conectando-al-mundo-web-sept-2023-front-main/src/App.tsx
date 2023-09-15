@@ -3,8 +3,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import Example from "./components/Example";
 import Principal from "./models/Principal";
-/*import Registro from "./models/Registro";
-import Calendar from "./models/Calendar";*/
+/*import Registro from "./models/Registro";*/
+import { Calendar } from "./models/Calendar";
+
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
@@ -23,10 +24,11 @@ const router = createBrowserRouter([
     path: "/registro",
     element: <Registro></Registro>,
   },
+  */
   {
     path: "/calendar",
     element: <Calendar></Calendar>,
-  },*/
+  },
 ]);
 function App() {
   return (

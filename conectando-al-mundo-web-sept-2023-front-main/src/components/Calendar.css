@@ -1,0 +1,375 @@
+.calendar {
+  background-color: #faf5f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* "Calendar" title */
+.calendar .title {
+  color: #3c3a2d;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  left: 543px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  width: 354px;
+}
+
+/* Menu button */
+.calendar .menu {
+  background-image: url(./img/menuButton.png);
+  background-size: 100% 100%;
+  width: 225px;
+  height: 60px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 51px;
+  width: 60px;
+}
+
+/* Plus (add) button */
+.calendar .plus {
+  background-image: url(./img/plusButton.png);
+  background-size: 100% 100%;
+  height: 60px;
+  left: 1297px;
+  object-fit: cover;
+  position: absolute;
+  top: 51px;
+  width: 61px;
+}
+
+/* Monday group */
+.calendar .monday {
+  background-color: #ece6e0;
+  border-radius: 20px;
+  height: 495px;
+  left: 78px;
+  position: absolute;
+  top: 245px;
+  width: 240px;
+}
+
+.calendar .text-monday {
+  color: #000000;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 36px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 166px;
+}
+
+.calendar .mon_task1 {
+  height: 52px;
+  left: 17px;
+  position: absolute;
+  top: 91px;
+  width: 206px;
+}
+
+.calendar .mon_task2 {
+  height: 52px;
+  left: 18px;
+  position: absolute;
+  top: 154px;
+  width: 206px;
+}
+
+.calendar .mon_task3 {
+  height: 52px;
+  left: 15px;
+  position: absolute;
+  top: 217px;
+  width: 206px;
+}
+
+/* ------------------------------- */
+
+/* Tuesday group */
+.calendar .tuesday {
+  background-color: #ece6e0;
+  border-radius: 20px;
+  height: 495px;
+  left: 341px;
+  position: absolute;
+  top: 245px;
+  width: 240px;
+}
+
+.calendar .text-tuesday {
+  color: #000000;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 37px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 166px;
+}
+
+/* ------------------------------- */
+
+/* Wednesday group */
+.calendar .wednesday {
+  background-color: #ece6e0;
+  border-radius: 20px;
+  height: 495px;
+  left: 600px;
+  position: absolute;
+  top: 245px;
+  width: 240px;
+}
+
+.calendar .text-wednesday {
+  color: #000000;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 38px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 166px;
+}
+
+/* ------------------------------- */
+
+/* Thursday group */
+.calendar .thursday {
+  background-color: #ece6e0;
+  border-radius: 20px;
+  height: 495px;
+  left: 859px;
+  position: absolute;
+  top: 245px;
+  width: 240px;
+}
+
+.calendar .text-thursday {
+  color: #000000;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 35px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 166px;
+}
+
+/* ------------------------------- */
+
+/* Friday group */
+.calendar .friday {
+  background-color: #ece6e0;
+  border-radius: 20px;
+  height: 495px;
+  left: 1118px;
+  position: absolute;
+  top: 245px;
+  width: 240px;
+}
+
+.calendar .text-friday {
+  color: #000000;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 36px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 166px;
+}
+
+/* ------------------------------- */
+
+/* General things */
+.calendar .task_text {
+  color: #000000;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 17px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 171px;
+}
+
+.calendar .low_task {
+  background-color: #18f089;
+  border-radius: 10px;
+  height: 52px;
+  position: relative;
+  width: 204px;
+}
+
+.calendar .important_task {
+  background-color: #ffc107;
+  border-radius: 10px;
+  height: 52px;
+  position: relative;
+  width: 204px;
+}
+
+.calendar .urgent_task {
+  background-color: #ff0749;
+  border-radius: 10px;
+  height: 52px;
+  position: relative;
+  width: 204px;
+}
+
+/* Filter tab */
+.calendar .filter {
+  height: 60px;
+  left: 108px;
+  position: absolute;
+  top: 148px;
+  width: 1224px;
+}
+
+.calendar .urgent {
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 229px;
+}
+
+.calendar .img-urgent {
+  background-image: url(./img/rectRojo.png);
+  background-size: 100% 100%;
+  height: 60px;
+  position: relative;
+  width: 225px;
+}
+
+.calendar .urgent-text {
+  color: #3c3a2d;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 35px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  width: 154px;
+}
+
+.calendar .important {
+  height: 60px;
+  left: 333px;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.calendar .img-important {
+  background-image: url(./img/rectAmarillo.png);
+  background-size: 100% 100%;
+  height: 60px;
+  position: relative;
+  width: 225px;
+}
+
+.calendar .important-text {
+  color: #3c3a2d;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 25px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  width: 175px;
+}
+
+.calendar .low {
+  height: 60px;
+  left: 666px;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.calendar .img-low {
+  background-image: url(./img/rectVerde.png);
+  background-size: 100% 100%;
+  height: 60px;
+  position: relative;
+  width: 225px;
+}
+
+.calendar .low-text {
+  color: #3c3a2d;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 36px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  width: 154px;
+}
+
+.calendar .all {
+  height: 60px;
+  left: 999px;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.calendar .img-all {
+  background-image: url(./img/rectAzul.png);
+  background-size: 100% 100%;
+  height: 60px;
+  position: relative;
+  width: 225px;
+}
+
+.calendar .all-text {
+  color: #3c3a2d;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 36px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  width: 154px;
+}
