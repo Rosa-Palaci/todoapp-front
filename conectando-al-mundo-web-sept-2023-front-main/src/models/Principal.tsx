@@ -7,6 +7,7 @@ import task from "../components/img/new-task.png";
 import checkbox from "../components/img/checkbox.png";
 import edit from "../components/img/edit.png";
 import trash from "../components/img/trash.png";
+import { Link, useNavigate } from "react-router-dom";
 
 enum FilterOption {
   Urgent = "urgent",
@@ -16,6 +17,28 @@ enum FilterOption {
 }
 
 function TareaProps() {
+  const [menuClicked, setMenuClicked] = useState(false);
+  const [calendarClicked, setCalendarClicked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleTaskClick = () => {
+    setMenuClicked(true);
+    navigate("/registro");
+
+    setTimeout(() => {
+      setMenuClicked(false);
+    }, 500);
+  };
+
+  const handleCalendarClick = () => {
+    setCalendarClicked(true);
+    navigate("/calendar");
+
+    setTimeout(() => {
+      setCalendarClicked(false);
+    }, 500);
+  };
+
   const [filter, setFilter] = useState(FilterOption.All);
 
   const [tasks, setTasks] = useState([
@@ -31,9 +54,19 @@ function TareaProps() {
   return (
     <div className="Container">
       <div className="Navbar">
-        <img src={task} style={{ width: "60px" }} />
+        <img
+          src={task}
+          className="clickable-image"
+          onClick={handleTaskClick}
+          style={{ width: "60px" }}
+        />
         <h1>Things to do</h1>
-        <img src={calendar} style={{ width: "130px" }} />
+        <img
+          src={calendar}
+          className="clickable-image"
+          onClick={handleCalendarClick}
+          style={{ width: "130px" }}
+        />
       </div>
 
       <div className="Filter">
