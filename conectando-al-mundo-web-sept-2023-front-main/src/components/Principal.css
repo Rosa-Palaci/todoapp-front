@@ -58,3 +58,42 @@ body {
 .filter-button:hover {
   filter: saturate(60%);
 }
+
+.List {
+  margin-top: 40px;
+}
+
+.task-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d9d9d9;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox-button,
+.edit-button,
+.delete-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.checkbox-button img,
+.edit-button img,
+.delete-button img {
+  width: 30px;
+  height: 30px;
+}
