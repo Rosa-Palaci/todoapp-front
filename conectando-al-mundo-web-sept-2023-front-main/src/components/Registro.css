@@ -38,3 +38,16 @@ body {
   border: 1px solid #d9d9d9;
   border-radius: 10px;
 }
+
+.clickable-image {
+  cursor: pointer;
+  transition: opacity 0.3s; /* Transición suave de la opacidad */
+}
+
+.clickable-image:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el ratón sobre la imagen */
+}
+
+.clicked {
+  opacity: 0.4; /* Cambia la opacidad cuando se hace clic en la imagen */
+}

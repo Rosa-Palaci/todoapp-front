@@ -2,11 +2,13 @@ import "../components/Registro.css";
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import React from "react";
 import calendar from "../components/img/boton-calendar.png";
 import menu from "../components/img/menuButton.png";
 import datecalendar from "../components/img/calendar.png";
 import triangle from "../components/img/alert-triangle.png";
 import linkexternal from "../components/img/external-link.png";
+import { Link, useNavigate } from "react-router-dom";
 
 function Tasklog() {
   const [title, setTitle] = useState("");
@@ -15,22 +17,47 @@ function Tasklog() {
   const [priority, setPriority] = useState("urgent");
 
   const handleCreateTask = () => {
-    // Aquí puedes agregar la lógica para enviar los datos del formulario
-    // a través de una solicitud axios u otro método.
-    // Por ejemplo, puedes enviarlos a tu servidor para crear la tarea.
-
-    // Limpia los campos después de crear la tarea
     setTitle("");
     setLink("");
     setDate("");
     setPriority("urgent");
   };
+
+  const [menuClicked, setMenuClicked] = useState(false);
+  const [calendarClicked, setCalendarClicked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMenuClick = () => {
+    setMenuClicked(true);
+    navigate("/principal");
+    setTimeout(() => {
+      setMenuClicked(false);
+    }, 500);
+  };
+
+  const handleCalendarClick = () => {
+    setCalendarClicked(true);
+    navigate("/calendar");
+    setTimeout(() => {
+      setCalendarClicked(false);
+    }, 500);
+  };
   return (
     <div className="Container">
       <div className="Navbar">
-        <img src={menu} style={{ width: "60px" }} />
+        <img
+          src={menu}
+          className={`clickable-image ${menuClicked ? "clicked" : ""}`}
+          style={{ width: "60px" }}
+          onClick={handleMenuClick}
+        />
         <h1>Create a new task</h1>
-        <img src={calendar} style={{ width: "130px" }} />
+        <img
+          src={calendar}
+          className={`clickable-image ${calendarClicked ? "clicked" : ""}`}
+          style={{ width: "130px" }}
+          onClick={handleCalendarClick}
+        />
       </div>
 
       <div className="Forms">
