@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Example from "./components/Example";
 import Principal from "./models/Principal";
-import Registro from "./models/Registro";
+import Registro from "./screens/Registro";
 import { Calendar } from "./models/Calendar";
 
 import { createRoot } from "react-dom/client";

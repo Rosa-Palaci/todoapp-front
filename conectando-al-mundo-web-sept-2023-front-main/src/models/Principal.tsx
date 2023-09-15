@@ -8,6 +8,8 @@ import checkbox from "../components/img/checkbox.png";
 import edit from "../components/img/edit.png";
 import trash from "../components/img/trash.png";
 import { Link, useNavigate } from "react-router-dom";
+import {tarea} from "../models/tarea"
+
 
 enum FilterOption {
   Urgent = "urgent",
@@ -41,16 +43,20 @@ function TareaProps() {
 
   const [filter, setFilter] = useState(FilterOption.All);
 
-  const [tasks, setTasks] = useState([
-    { id: 1, name: "Tarea 1" },
-    { id: 2, name: "Tarea 2" },
-    { id: 3, name: "Tarea 3" }, //Falta logica
-  ]);
+  const [tarea, setTareas] = useState([]);
+  function listTareas(){
+    axios.get("http://127.0.0.1:8000/tarea/vertodo").then((response)=>{
+        setTareas(response.data)
+    })
+  };
 
   const handleFilterClick = (value: FilterOption) => {
     setFilter(value);
     // Agregar lógica adicional para filtrar las tareas según el valor
   };
+  useEffect(()=>{
+    listTareas();
+},[])
   return (
     <div className="Container">
       <div className="Navbar">
@@ -105,9 +111,9 @@ function TareaProps() {
       </div>
 
       <div className="List">
-        {tasks.map((task) => (
-          <div className="task-card" key={task.id}>
-            <div className="task-name">{task.name}</div>
+        {tarea.map((tarea: tarea) => (
+          <div className="task-card" key={tarea.idtarea}>
+            <div className="task-name">{tarea.nombre}</div>
             <div className="task-buttons">
               <button className="checkbox-button">
                 <img src={checkbox} alt="Editar" />

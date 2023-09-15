@@ -5,35 +5,51 @@ import axios from "axios";
 import React from "react";
 import calendar from "../components/img/boton-calendar.png";
 import menu from "../components/img/menuButton.png";
-import datecalendar from "../components/img/calendar.png";
+import fechacalendar from "../components/img/calendar.png";
 import triangle from "../components/img/alert-triangle.png";
 import linkexternal from "../components/img/external-link.png";
 import { Link, useNavigate } from "react-router-dom";
+import {tarea} from "../models/tarea"
 
 function Tasklog() {
-  const [title, setTitle] = useState("");
+  const [nombre, setNombre] = useState("");
   const [link, setLink] = useState("");
-  const [date, setDate] = useState("");
-  const [priority, setPriority] = useState("urgent");
+  const [fecha, setFecha] = useState("");
+  const [prioridad, setPrioridad] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [tarea,setTareas]=useState([]);
+
+  function save(){ 
+    
+    axios.post("http://127.0.0.1:8000/tarea/nueva",{
+      nombre: nombre,
+      fecha: fecha,
+      link: link,
+      prioridad: prioridad
+    })
+  }
+
 
   const handleCreateTask = () => {
-    if (!title || !link || !date || !priority) {
+    if (!nombre || !link || !fecha || !prioridad) {
       setErrorMessage("Todos los campos son obligatorios.");
       return;
     }
-    setTitle("");
+    setNombre("");
     setLink("");
-    setDate("");
-    setPriority("urgent");
+    setFecha("");
+    setPrioridad("urgent");
     setErrorMessage("");
+  
+    save();
   };
 
   const [menuClicked, setMenuClicked] = useState(false);
   const [calendarClicked, setCalendarClicked] = useState(false);
   const navigate = useNavigate();
 
-  const handleMenuClick = () => {
+
+  const handleMenuClick = () => { 
     setMenuClicked(true);
     navigate("/principal");
     setTimeout(() => {
@@ -74,12 +90,14 @@ function Tasklog() {
 
         <form>
           <div className="form-item">
-            <label htmlFor="title">Enter title:</label>
+            <label htmlFor="nombre">Enter nombre:</label>
             <input
               type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              id="nombre"
+              value={nombre}
+              onChange={(event) =>{
+              const{value}=event.target
+              setNombre(value)}}
             />
           </div>
           <div className="form-item">
@@ -88,29 +106,34 @@ function Tasklog() {
               type="text"
               id="link"
               value={link}
-              onChange={(e) => setLink(e.target.value)}
+              onChange={(event) =>{
+              const{value}=event.target
+              setLink(value)}}
             />
             <img src={linkexternal} />
           </div>
           <div className="form-item">
-            <label htmlFor="date">Enter date:</label>
+            <label htmlFor="fecha">Enter fecha:</label>
             <input
-              type="date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+              type="text"
+              id="fecha"
+              value={fecha}
+              onChange={(event) =>{
+              const{value}=event.target  
+              setFecha(event.target.value)}}
             />
           </div>
           <div className="form-item">
-            <label htmlFor="priority">Enter priority:</label>
+            <label htmlFor="prioridad">Enter prioridad:</label>
             <select
-              id="priority"
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
+              id="prioridad"
+              onChange={(event) =>{
+              const{value}=event.target
+              setPrioridad(value)}}
             >
-              <option value="urgent">Urgent</option>
-              <option value="important">Important</option>
-              <option value="low">Low</option>
+              <option value="3">Urgent</option>
+              <option value="2">Important</option>
+              <option value="1">Low</option>
             </select>
             <img src={triangle} />
           </div>
